@@ -1,6 +1,6 @@
-"use client"
+// Server Component: no client-only APIs required
 
-import { servicesByCategory, flattenCategory, type CategoryDefinition } from "@/lib/services"
+import { servicesByCategory, categoryCounts, type CategoryDefinition } from "@/lib/services"
 import { ServiceCard } from "./service-card"
 
 const CATEGORY_META: Record<string, { title: string; color: string; description?: string }> = {
@@ -19,7 +19,7 @@ export function LayeredContainers() {
     <div className="space-y-10 px-4 md:px-6 lg:px-8 py-8">
       {categories.map(([category, definition]) => {
         const meta = CATEGORY_META[category]
-        const totalServices = flattenCategory(definition).length
+        const totalServices = categoryCounts[category]
         return (
           <section
             key={category}

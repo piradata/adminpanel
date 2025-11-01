@@ -20,7 +20,7 @@ export interface CategoryDefinition {
 }
 
 // Centralized service definitions grouped by category
-export const servicesByCategory: Record<string, CategoryDefinition> = {
+export const servicesByCategory: Record<string, CategoryDefinition> = Object.freeze({
   hub: {
     standalone: [
       { id: "website", name: "Personal Website", logo: "https://avatars.githubusercontent.com/u/16529503", url: "", category: "hub" },
@@ -60,23 +60,31 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
               { id: "sonarr", name: "Sonarr", logo: "https://raw.githubusercontent.com/Sonarr/Sonarr/develop/Logo/256.png", url: "", category: "media" },
               { id: "radarr", name: "Radarr", logo: "https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/256.png", url: "", category: "media" },
               { id: "lidarr", name: "Lidarr", logo: "https://raw.githubusercontent.com/Lidarr/Lidarr/develop/Logo/256.png", url: "", category: "media" },
-              { id: "qbittorrent", name: "qBittorrent", logo: "https://raw.githubusercontent.com/qbittorrent/qBittorrent/master/src/icons/qbittorrent-tray.png", url: "", category: "media" },
+              { id: "qbittorrent", name: "qBittorrent", logo: "https://www.qbittorrent.org/favicon.svg", url: "", category: "media" },
             ],
           },
         ],
       },
     ],
   },
-}
+})
 
 export function flattenCategory(category: CategoryDefinition): Service[] {
-  const base = [...category.standalone]
+  const base = category.standalone
   const nested = category.clusters?.flatMap((cluster) => {
     const children = cluster.sections.flatMap((section) => section.services)
     return [cluster.parent, ...children]
   }) ?? []
-
   return [...base, ...nested]
 }
 
-export const allServices: Service[] = Object.values(servicesByCategory).flatMap(flattenCategory)
+export const allServices = Object.freeze(
+  Object.values(servicesByCategory).flatMap(flattenCategory)
+) as ReadonlyArray<Service>
+
+// Precomputed immutable counts to avoid hydration mismatches.
+export const categoryCounts: Record<string, number> = Object.freeze(
+  Object.fromEntries(
+    Object.entries(servicesByCategory).map(([key, def]) => [key, flattenCategory(def).length])
+  )
+)

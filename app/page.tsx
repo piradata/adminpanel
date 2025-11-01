@@ -1,11 +1,11 @@
 import { Header } from "@/components/header"
-import { SimpleGrid } from "@/components/simple-grid"
+import { LayeredContainers } from "@/components/layered-containers"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Header />
-      <SimpleGrid />
+      <LayeredContainers />
     </main>
   )
 }

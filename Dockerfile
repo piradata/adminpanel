@@ -12,7 +12,7 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 # Build Next.js and export static site (requires "export" script in package.json)
-RUN pnpm build && pnpm export
+RUN pnpm build
 
 # Production stage: Nginx to serve static files
 FROM nginx:alpine

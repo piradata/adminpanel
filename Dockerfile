@@ -1,19 +1,24 @@
 # Build stage
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Enable corepack to use bundled pnpm
+RUN corepack enable
+
 COPY package*.json ./
-RUN npm ci
+COPY pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 COPY . .
-RUN npm run build
+# Build Next.js and export static site (requires "export" script in package.json)
+RUN pnpm build && pnpm export
 
 # Production stage: Nginx to serve static files
 FROM nginx:alpine
 
-COPY --from=builder /app/.next/static /usr/share/nginx/html/_next/static
-COPY --from=builder /app/public /usr/share/nginx/html
+# Copy exported static site output
+COPY --from=builder /app/out /usr/share/nginx/html
 
 EXPOSE 80
 

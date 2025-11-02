@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   /* Updated to dark tech aesthetic with cyan/blue accent */
   --background: oklch(0.08 0 0);

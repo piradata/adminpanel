@@ -1,14 +1,14 @@
-import type { ServiceNode } from "@/src/components/services"
+import type { ServiceNode } from "@/src/components/services";
 
 interface ClusterHeaderProps {
-  cluster: ServiceNode
-  count: number
+  cluster: ServiceNode;
+  count: number;
 }
 
 export function ClusterHeader({ cluster, count }: ClusterHeaderProps) {
   return (
     <>
-      {cluster.displaySelf ? (
+      {cluster.displaySelf !== false ? (
         <>
           <div className="space-y-4 pb-5 border-b border-border/40">
             <div className="flex items-start justify-between">
@@ -46,7 +46,7 @@ export function ClusterHeader({ cluster, count }: ClusterHeaderProps) {
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div>
             <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
-              {cluster.title}
+              {cluster.clusterTitle}
             </h3>
             {cluster.description && (
               <p className="text-sm text-muted-foreground mt-1 max-w-prose">
@@ -60,5 +60,5 @@ export function ClusterHeader({ cluster, count }: ClusterHeaderProps) {
         </div>
       )}
     </>
-  )
+  );
 }

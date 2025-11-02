@@ -1,18 +1,20 @@
-import {Service} from "@/src/components/services"
+import { Service } from "@/src/components/services";
 
 export interface ServiceCardProps {
-  service: Service
+  service: Service;
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {
-  const hrefAttr = service.url || "#"
+  const hrefAttr = service.url || "#";
 
   return (
     <a
       href={hrefAttr}
       target={service.url ? "_blank" : undefined}
       rel={service.url ? "noopener noreferrer" : undefined}
-      className={"group relative overflow-hidden rounded-lg border bg-card/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center gap-1.5 sm:gap-2 aspect-square"}
+      className={
+        "group relative overflow-hidden rounded-lg border bg-card/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center gap-1.5 sm:gap-2 aspect-square"
+      }
     >
       <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -33,5 +35,5 @@ export function ServiceCard({ service }: ServiceCardProps) {
       {/* Bottom accent line */}
       <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-accent to-cyan-500 group-hover:w-full transition-all duration-500" />
     </a>
-  )
+  );
 }

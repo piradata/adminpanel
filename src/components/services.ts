@@ -10,7 +10,7 @@ export interface Service {
 // When a node has a `services` map, its children are keyed by id.
 export interface ServiceNode extends Omit<Service, 'name'> {
   title: string
-  displaySelf?: boolean // If true and this node is a cluster (has children), also render its own card alongside children
+  displaySelf?: boolean // If false, this cluster node won't render its own card (defaults to true)
   clusterTitle?: string // Optional cluster title to differentiate cluster header from service card title
   description?: string
   services?: Record<string, ServiceNode>
@@ -61,7 +61,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         description: "Self-hosted media server with companion automation (ARR stack) and request tools.",
         logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png",
         url: "",
-        displaySelf: false,
+        displaySelf: true,
         services: {
           jellyseerr: { title: "Jellyseerr", logo: "https://raw.githubusercontent.com/seerr-team/seerr/refs/heads/develop/public/android-chrome-512x512.png", url: "" },
           wizarr: { title: "Wizarr", logo: "https://raw.githubusercontent.com/wizarrrr/wizarr/refs/heads/main/app/static/wizarr-logo.png", url: "" },

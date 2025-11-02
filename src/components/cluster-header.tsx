@@ -11,11 +11,11 @@ export function ClusterHeader({ cluster, count }: ClusterHeaderProps) {
       {cluster.displaySelf !== false ? (
         <>
           <div className="space-y-4 pb-5 border-b border-border/40">
-            <div className="flex items-start justify-between">
+            <div className="flex flex-col items-start">
               <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
                 {cluster.clusterTitle || cluster.title}
               </h3>
-              <span className="text-xs text-muted-foreground whitespace-nowrap">
+              <span className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide">
                 {count} services
               </span>
             </div>
@@ -43,20 +43,18 @@ export function ClusterHeader({ cluster, count }: ClusterHeaderProps) {
           </div>
         </>
       ) : (
-        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <div>
-            <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
-              {cluster.clusterTitle}
-            </h3>
-            {cluster.description && (
-              <p className="text-sm text-muted-foreground mt-1 max-w-prose">
-                {cluster.description}
-              </p>
-            )}
-          </div>
-          <span className="text-xs text-muted-foreground whitespace-nowrap">
+        <div className="flex flex-col gap-2">
+          <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
+            {cluster.clusterTitle}
+          </h3>
+          <span className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide">
             {count} services
           </span>
+          {cluster.description && (
+            <p className="text-sm text-muted-foreground mt-1 max-w-prose">
+              {cluster.description}
+            </p>
+          )}
         </div>
       )}
     </>

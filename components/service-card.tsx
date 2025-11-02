@@ -3,11 +3,11 @@
 import Image from "next/image"
 
 export interface Service {
-  id: string
-  name: string
+  title: string
   logo: string
   url: string
-  category: string
+  description?: string
+  services?: Record<string, Service> // allow nested for clusters (for typing convenience here)
 }
 
 export interface ServiceCardProps {
@@ -30,7 +30,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 relative flex items-center justify-center flex-shrink-0">
           <Image
             src={service.logo || "/placeholder.svg"}
-            alt={`${service.name} logo`}
+            alt={`${service.title} logo`}
             width={48}
             height={48}
             className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
@@ -39,7 +39,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         </div>
 
         <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors duration-300 text-xs sm:text-xs md:text-sm text-center line-clamp-2">
-          {service.name}
+          {service.title}
         </h3>
       </div>
 

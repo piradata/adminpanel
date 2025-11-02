@@ -4,10 +4,10 @@ import type { Service } from "@/src/components/service-card"
 // When a node has a `services` map, its children are keyed by id.
 export interface ServiceNode extends Omit<Service, 'name'> {
   title: string
+  displaySelf?: boolean // If true and this node is a cluster (has children), also render its own card alongside children
+  clusterTitle?: string // Optional cluster title to differentiate cluster header from service card title
   description?: string
   services?: Record<string, ServiceNode>
-  // If true and this node is a cluster (has children), also render its own card alongside children
-  displaySelf?: boolean
 }
 
 export interface CategoryDefinition {
@@ -51,6 +51,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
       nextcloud: { title: "Nextcloud", logo: "https://avatars.githubusercontent.com/u/19211038?s=200&v=4", url: "" },
       jellyfin: {
         title: "Jellyfin",
+        clusterTitle: "Jellyfin Ecosystem",
         description: "Self-hosted media server with companion automation (ARR stack) and request tools.",
         logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png",
         url: "",

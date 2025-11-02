@@ -6,6 +6,8 @@ export interface ServiceNode extends Omit<Service, 'name'> {
   title: string
   description?: string
   services?: Record<string, ServiceNode>
+  // If true and this node is a cluster (has children), also render its own card alongside children
+  displaySelf?: boolean
 }
 
 export interface CategoryDefinition {
@@ -52,6 +54,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
         description: "Self-hosted media server with companion automation (ARR stack) and request tools.",
         logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png",
         url: "",
+        displaySelf: true,
         services: {
           jellyseerr: { title: "Jellyseerr", logo: "https://raw.githubusercontent.com/seerr-team/seerr/refs/heads/develop/public/android-chrome-512x512.png", url: "" },
           wizarr: { title: "Wizarr", logo: "https://raw.githubusercontent.com/wizarrrr/wizarr/refs/heads/main/app/static/wizarr-logo.png", url: "" },

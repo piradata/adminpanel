@@ -22,6 +22,7 @@ export function LayeredContainers() {
         )}
         {clusters.map(([key, cluster]) => {
           const children = cluster.services ? Object.values(cluster.services) : []
+          const count = children.length + (cluster.displaySelf ? 1 : 0)
           return (
             <div
               key={key}
@@ -39,9 +40,14 @@ export function LayeredContainers() {
                   )}
                 </div>
                 <span className="text-xs text-muted-foreground whitespace-nowrap">
-                  {children.length} services
+                  {count} services
                 </span>
               </div>
+              {cluster.displaySelf && (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
+                  <ServiceCard service={cluster} />
+                </div>
+              )}
               {cluster.services && renderNodes(cluster.services, depth + 1)}
             </div>
           )

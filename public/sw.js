@@ -1,5 +1,5 @@
 // Simple service worker for offline caching
-const CACHE_NAME = 'adminpanel-cache-v1'
+const CACHE_NAME = 'adminpanel-cache-v3'
 const CORE_ASSETS = [
   '/',
   '/manifest.json'

@@ -48,7 +48,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       adguard: { title: "AdGuard", logo: "https://st.adguardcdn.com/favicons/adguard/apple-touch-icon.png", url: "https://adguard.local.piradata.dev" },
       cloudflared: { title: "Cloudflared", logo: "https://www.cloudflare.com/favicon.ico", url: "https://dash.cloudflare.com/7c00deacf90c494c49bedd35feaafce8/piradata.dev/dns/records" },
       npm: { title: "Nginx Proxy Manager", logo: "https://nginxproxymanager.com/logo.svg", url: "https://nginx.local.piradata.dev" },
-      router: { title: "Router", logo: "https://cdn-icons-png.flaticon.com/512/1183/1183606.png", url: "https://router.local.piradata.dev" },
+      router: { title: "Router", logo: "https://cdn-icons-png.flaticon.com/512/1183/1183606.png", url: "https://192.168.1.254" },
     },
   },
   media: {

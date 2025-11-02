@@ -1,6 +1,6 @@
 // Service worker for offline caching & installability
 // Increment this when updating cached assets
-const CACHE_NAME = 'adminpanel-cache-v11'
+const CACHE_NAME = 'adminpanel-cache-v12'
 const CORE_ASSETS = [
   '/',
   '/manifest.json',

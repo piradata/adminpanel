@@ -49,6 +49,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       cloudflared: { title: "Cloudflared", logo: "https://www.cloudflare.com/favicon.ico", url: "https://dash.cloudflare.com/7c00deacf90c494c49bedd35feaafce8/piradata.dev/dns/records" },
       npm: { title: "Nginx Proxy Manager", logo: "https://nginxproxymanager.com/logo.svg", url: "https://nginx.local.piradata.dev" },
       router: { title: "Router", logo: "https://cdn-icons-png.flaticon.com/512/1183/1183606.png", url: "https://router.local.piradata.dev" },
+      bitwarden: { title: "Bitwarden", logo: "https://bitwarden.com/icons/icon-512x512.png", url: "https://bitwarden.local.piradata.dev" },
     },
   },
   media: {

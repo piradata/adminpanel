@@ -1,14 +1,4 @@
-"use client"
-
-"use client"
-
-export interface Service {
-  title: string
-  logo: string
-  url: string
-  description?: string
-  services?: Record<string, Service> // allow nested for clusters (for typing convenience here)
-}
+import {Service} from "@/src/components/services"
 
 export interface ServiceCardProps {
   service: Service

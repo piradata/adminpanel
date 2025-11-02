@@ -1,4 +1,10 @@
-import type { Service } from "@/src/components/service-card"
+export interface Service {
+  title: string
+  logo: string
+  url: string
+  description?: string
+  services?: Record<string, Service> // allow nested for clusters (for typing convenience here)
+}
 
 // ServiceNode can represent either a leaf service or a cluster.
 // When a node has a `services` map, its children are keyed by id.
@@ -18,7 +24,7 @@ export interface CategoryDefinition {
 }
 
 // Centralized service definitions grouped by category
-export const servicesByCategory: Record<string, CategoryDefinition> = Object.freeze({
+export const servicesByCategory: Record<string, CategoryDefinition> = {
   hub: {
     title: "Hub",
     color: "from-blue-500/20 to-blue-700/10",
@@ -55,7 +61,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
         description: "Self-hosted media server with companion automation (ARR stack) and request tools.",
         logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png",
         url: "",
-        displaySelf: true,
+        displaySelf: false,
         services: {
           jellyseerr: { title: "Jellyseerr", logo: "https://raw.githubusercontent.com/seerr-team/seerr/refs/heads/develop/public/android-chrome-512x512.png", url: "" },
           wizarr: { title: "Wizarr", logo: "https://raw.githubusercontent.com/wizarrrr/wizarr/refs/heads/main/app/static/wizarr-logo.png", url: "" },
@@ -68,19 +74,4 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
       },
     },
   },
-})
-
-function flattenMap(map: Record<string, ServiceNode>): ServiceNode[] {
-  return Object.values(map).flatMap(node => node.services ? [node, ...flattenMap(node.services)] : [node])
 }
-
-export function flattenCategory(category: CategoryDefinition): ServiceNode[] {
-  return flattenMap(category.services)
-}
-
-// Precomputed immutable counts to avoid hydration mismatches.
-export const categoryCounts: Record<string, number> = Object.freeze(
-  Object.fromEntries(
-    Object.entries(servicesByCategory).map(([key, def]) => [key, flattenCategory(def).length])
-  )
-)

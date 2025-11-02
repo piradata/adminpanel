@@ -1,13 +1,15 @@
 {
+  "id": "server-admin-dashboard",
   "name": "Server Administration Dashboard",
   "short_name": "Server Admin",
   "description": "Central hub for Linux server administration and service management",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "theme_color": "#0f172a",
   "background_color": "#0f172a",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -34,7 +36,10 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["productivity", "utilities"],
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
   "screenshots": [
     {
       "src": "/screenshot-540x720.png",

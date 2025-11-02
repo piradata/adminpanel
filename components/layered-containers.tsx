@@ -39,16 +39,16 @@ export function LayeredContainers() {
                   </span>
                 </div>
               </header>
-              {definition.standalone.length > 0 && (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
-                  {definition.standalone.map((service) => (
-                    <ServiceCard key={service.id} service={service} />
-                  ))}
-                </div>
-              )}
+              {/* Render top-level services; cluster nodes have nested services */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
+                {definition.services.filter(s => !s.services).map(service => (
+                  <ServiceCard key={service.id} service={service} />
+                ))}
+              </div>
 
-              {definition.clusters?.map((cluster) => {
-                const clusterCount = 1 + cluster.sections.reduce((count, section) => count + section.services.length, 0)
+              {definition.services.filter(s => s.services).map(cluster => {
+                const clusterChildren = cluster.services ?? []
+                const clusterCount = clusterChildren.length
                 return (
                   <div
                     key={cluster.id}
@@ -57,7 +57,7 @@ export function LayeredContainers() {
                     <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                       <div>
                         <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
-                          {cluster.title}
+                          {cluster.title || cluster.name}
                         </h3>
                         {cluster.description && (
                           <p className="text-sm text-muted-foreground mt-1 max-w-prose">
@@ -71,21 +71,10 @@ export function LayeredContainers() {
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
-                      <ServiceCard service={cluster.parent} />
+                      {clusterChildren.map(child => (
+                        <ServiceCard key={child.id} service={child} />
+                      ))}
                     </div>
-
-                    {cluster.sections.map((section) => (
-                      <div key={section.id} className="space-y-3">
-                        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                          {section.title}
-                        </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
-                          {section.services.map((service) => (
-                            <ServiceCard key={service.id} service={service} />
-                          ))}
-                        </div>
-                      </div>
-                    ))}
                   </div>
                 )
               })}

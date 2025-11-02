@@ -1,25 +1,21 @@
 import type { Service } from "@/components/service-card"
 
-export interface ServiceSection {
-  id: string
-  title: string
-  services: Service[]
-}
-
-export interface ServiceCluster {
-  id: string
-  title: string
-  description?: string
-  parent: Service
-  sections: ServiceSection[]
+// A ServiceNode can be either a leaf service card (no nested services)
+// or a cluster/group which also contains its own services array.
+// If a node has a `services` array, it is treated as a cluster and
+// rendered with its own heading (using its `title`, `description`).
+export interface ServiceNode extends Service {
+  title?: string          // Optional name for clusters (can reuse `name` when absent)
+  description?: string    // Description displayed for clusters
+  services?: ServiceNode[] // Nested services (cluster children)
+  // Optional layout tag if future styling/grouping needed
 }
 
 export interface CategoryDefinition {
-  standalone: Service[]
-  clusters?: ServiceCluster[]
   title: string
   color: string
   description?: string
+  services: ServiceNode[] // Unified list of top-level nodes (leaf services or clusters)
 }
 
 // Centralized service definitions grouped by category
@@ -28,7 +24,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
     title: "Hub",
     color: "from-blue-500/20 to-blue-700/10",
     description: "Central personal entry point",
-    standalone: [
+    services: [
       { id: "website", name: "Personal Website", logo: "https://avatars.githubusercontent.com/u/16529503", url: "", category: "hub" },
     ],
   },
@@ -36,7 +32,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
     title: "Administration",
     color: "from-orange-500/20 to-orange-700/10",
     description: "Platform & infrastructure management",
-    standalone: [
+    services: [
       { id: "authentik", name: "Authentik", logo: "https://goauthentik.io/img/icon.png", url: "", category: "admin" },
       { id: "arcane", name: "Arcane", logo: "https://raw.githubusercontent.com/ofkm/arcane/refs/heads/main/frontend/static/img/pwa/icon-512x512.png", url: "", category: "admin" },
       { id: "webmin", name: "Webmin", logo: "https://webmin.com/apple-touch-icon.png", url: "", category: "admin" },
@@ -51,48 +47,43 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
     title: "Media Services",
     color: "from-purple-500/20 to-purple-700/10",
     description: "Media indexing, streaming & discovery",
-    standalone: [
+    services: [
       { id: "immich", name: "Immich", logo: "https://raw.githubusercontent.com/immich-app/immich/refs/heads/main/design/immich-logo.png", url: "", category: "media" },
       { id: "nextcloud", name: "Nextcloud", logo: "https://avatars.githubusercontent.com/u/19211038?s=200&v=4", url: "", category: "media" },
-    ],
-    clusters: [
       {
         id: "jellyfin-ecosystem",
+        name: "Jellyfin Ecosystem",
         title: "Jellyfin Ecosystem",
         description: "Self-hosted media server with companion automation (ARR stack) and request tools.",
-        parent: { id: "jellyfin", name: "Jellyfin", logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png", url: "", category: "media" },
-        sections: [
-          {
-            id: "arr-stack",
-            title: "ARR Stack",
-            services: [
-              { id: "jellyseerr", name: "Jellyseerr", logo: "https://raw.githubusercontent.com/seerr-team/seerr/refs/heads/develop/public/android-chrome-512x512.png", url: "", category: "media" },
-              { id: "wizarr", name: "Wizarr", logo: "https://raw.githubusercontent.com/wizarrrr/wizarr/refs/heads/main/app/static/wizarr-logo.png", url: "", category: "media" },
-              { id: "prowlarr", name: "Prowlarr", logo: "https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/256.png", url: "", category: "media" },
-              { id: "sonarr", name: "Sonarr", logo: "https://raw.githubusercontent.com/Sonarr/Sonarr/develop/Logo/256.png", url: "", category: "media" },
-              { id: "radarr", name: "Radarr", logo: "https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/256.png", url: "", category: "media" },
-              { id: "lidarr", name: "Lidarr", logo: "https://raw.githubusercontent.com/Lidarr/Lidarr/develop/Logo/256.png", url: "", category: "media" },
-              { id: "qbittorrent", name: "qBittorrent", logo: "https://www.qbittorrent.org/favicon.svg", url: "", category: "media" },
-            ],
-          },
+        logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png",
+        url: "",
+        category: "media",
+        services: [
+          { id: "jellyfin", name: "Jellyfin", logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png", url: "", category: "media" },
+          { id: "jellyseerr", name: "Jellyseerr", logo: "https://raw.githubusercontent.com/seerr-team/seerr/refs/heads/develop/public/android-chrome-512x512.png", url: "", category: "media" },
+          { id: "wizarr", name: "Wizarr", logo: "https://raw.githubusercontent.com/wizarrrr/wizarr/refs/heads/main/app/static/wizarr-logo.png", url: "", category: "media" },
+          { id: "prowlarr", name: "Prowlarr", logo: "https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/256.png", url: "", category: "media" },
+          { id: "sonarr", name: "Sonarr", logo: "https://raw.githubusercontent.com/Sonarr/Sonarr/develop/Logo/256.png", url: "", category: "media" },
+          { id: "radarr", name: "Radarr", logo: "https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/256.png", url: "", category: "media" },
+          { id: "lidarr", name: "Lidarr", logo: "https://raw.githubusercontent.com/Lidarr/Lidarr/develop/Logo/256.png", url: "", category: "media" },
+          { id: "qbittorrent", name: "qBittorrent", logo: "https://www.qbittorrent.org/favicon.svg", url: "", category: "media" },
         ],
       },
     ],
   },
 })
 
-export function flattenCategory(category: CategoryDefinition): Service[] {
-  const base = category.standalone
-  const nested = category.clusters?.flatMap((cluster) => {
-    const children = cluster.sections.flatMap((section) => section.services)
-    return [cluster.parent, ...children]
-  }) ?? []
-  return [...base, ...nested]
+function flattenNodes(nodes: ServiceNode[]): ServiceNode[] {
+  return nodes.flatMap((node) => node.services ? [node, ...flattenNodes(node.services)] : [node])
+}
+
+export function flattenCategory(category: CategoryDefinition): ServiceNode[] {
+  return flattenNodes(category.services)
 }
 
 export const allServices = Object.freeze(
   Object.values(servicesByCategory).flatMap(flattenCategory)
-) as ReadonlyArray<Service>
+) as ReadonlyArray<ServiceNode>
 
 // Precomputed immutable counts to avoid hydration mismatches.
 export const categoryCounts: Record<string, number> = Object.freeze(

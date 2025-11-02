@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+"use client"
 
 export interface Service {
   title: string
@@ -28,13 +28,10 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
       <div className="relative z-10 flex flex-col items-center justify-center gap-1.5 sm:gap-2 w-full h-full">
         <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 relative flex items-center justify-center flex-shrink-0">
-          <Image
+          <img
             src={service.logo || "/placeholder.svg"}
             alt={`${service.title} logo`}
-            width={48}
-            height={48}
             className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-            priority={false}
           />
         </div>
 

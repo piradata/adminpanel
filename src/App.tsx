@@ -1,9 +1,7 @@
-"use client"
-
 import { Header } from "@/components/header"
 import { LayeredContainers } from "@/components/layered-containers"
 
-export default function Home() {
+export default function App() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Header />

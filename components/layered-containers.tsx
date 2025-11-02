@@ -1,5 +1,3 @@
-// Server Component: no client-only APIs required
-
 import { servicesByCategory, categoryCounts, type CategoryDefinition, type ServiceNode } from "@/lib/services"
 import { ServiceCard } from "./service-card"
 
@@ -32,7 +30,7 @@ export function LayeredContainers() {
               <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                 <div>
                   <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
-                    {cluster.title || cluster.name}
+                    {cluster.title}
                   </h3>
                   {cluster.description && (
                     <p className="text-sm text-muted-foreground mt-1 max-w-prose">

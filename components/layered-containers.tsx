@@ -41,13 +41,13 @@ export function LayeredContainers() {
               </header>
               {/* Render top-level services; cluster nodes have nested services */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
-                {definition.services.filter(s => !s.services).map(service => (
+                {Object.values(definition.services).filter(node => !node.services).map(service => (
                   <ServiceCard key={service.id} service={service} />
                 ))}
               </div>
 
-              {definition.services.filter(s => s.services).map(cluster => {
-                const clusterChildren = cluster.services ?? []
+              {Object.values(definition.services).filter(node => node.services).map(cluster => {
+                const clusterChildren = cluster.services ? Object.values(cluster.services) : []
                 const clusterCount = clusterChildren.length
                 return (
                   <div
@@ -71,9 +71,7 @@ export function LayeredContainers() {
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
-                      {clusterChildren.map(child => (
-                        <ServiceCard key={child.id} service={child} />
-                      ))}
+                      {clusterChildren.map(child => <ServiceCard key={child.id} service={child} />)}
                     </div>
                   </div>
                 )

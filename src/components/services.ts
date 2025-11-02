@@ -51,7 +51,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
       nextcloud: { title: "Nextcloud", logo: "https://avatars.githubusercontent.com/u/19211038?s=200&v=4", url: "" },
       jellyfin: {
         title: "Jellyfin",
-        clusterTitle: "Jellyfin Ecosystem",
+        clusterTitle: "ARR Stacks",
         description: "Self-hosted media server with companion automation (ARR stack) and request tools.",
         logo: "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png",
         url: "",

@@ -1,5 +1,6 @@
 import { servicesByCategory, categoryCounts, type CategoryDefinition, type ServiceNode } from "@/src/components/services"
 import { ServiceCard } from "./service-card"
+import { ClusterHeader } from "./cluster-header"
 
 export function LayeredContainers() {
   const categories = Object.entries(servicesByCategory) as Array<[
@@ -28,57 +29,13 @@ export function LayeredContainers() {
               key={key}
               className={`rounded-xl border border-border/60 bg-background/40 px-4 py-5 md:px-6 md:py-6 space-y-5 ${depth === 0 ? 'mt-6' : ''}`}
             >
-              {cluster.displaySelf ? (
-                <>
-                  {/* Cluster header: title + count above, icon left + description right */}
-                  <div className="space-y-4 pb-5 border-b border-border/40">
-                    <div className="flex items-start justify-between">
-                      <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
-                        {cluster.clusterTitle || cluster.title}
-                      </h3>
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">
-                        {count} services
-                      </span>
-                    </div>
-                    <div className="flex flex-col md:flex-row gap-4 md:items-center">
-                      {/* Smaller icon on left */}
-                      <div className="flex-shrink-0">
-                        <img
-                          src={cluster.logo}
-                          alt={`${cluster.title} logo`}
-                          className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-lg"
-                        />
-                      </div>
-                      {/* Description vertically centered on right */}
-                      {cluster.description && (
-                        <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                          {cluster.description}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                  {/* Render child services below */}
-                  {cluster.services && (
-                    <div className="pt-4">
-                      {renderNodes(cluster.services, depth + 1)}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
-                      {cluster.title}
-                    </h3>
-                    {cluster.description && (
-                      <p className="text-sm text-muted-foreground mt-1 max-w-prose">
-                        {cluster.description}
-                      </p>
-                    )}
-                  </div>
-                  <span className="text-xs text-muted-foreground whitespace-nowrap">
-                    {count} services
-                  </span>
+              <ClusterHeader
+                cluster={cluster} 
+                count={count}
+              />
+              {cluster.services && (
+                <div className="pt-4">
+                  {renderNodes(cluster.services, depth + 1)}
                 </div>
               )}
             </div>

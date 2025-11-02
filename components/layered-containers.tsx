@@ -28,24 +28,44 @@ export function LayeredContainers() {
               key={key}
               className={`rounded-xl border border-border/60 bg-background/40 px-4 py-5 md:px-6 md:py-6 space-y-5 ${depth === 0 ? 'mt-6' : ''}`}
             >
-              <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                <div>
-                  <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
-                    {cluster.title}
-                  </h3>
-                  {cluster.description && (
-                    <p className="text-sm text-muted-foreground mt-1 max-w-prose">
-                      {cluster.description}
-                    </p>
-                  )}
+              {cluster.displaySelf ? (
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                  {/* Left: self card */}
+                  <div className="flex-shrink-0 w-36">
+                    <ServiceCard service={cluster} />
+                  </div>
+                  {/* Right: text + count */}
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-start justify-between">
+                      <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
+                        {cluster.title}
+                      </h3>
+                      <span className="text-xs text-muted-foreground whitespace-nowrap mt-1 md:mt-0">
+                        {count} services
+                      </span>
+                    </div>
+                    {cluster.description && (
+                      <p className="text-sm text-muted-foreground max-w-prose leading-relaxed">
+                        {cluster.description}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap">
-                  {count} services
-                </span>
-              </div>
-              {cluster.displaySelf && (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-5">
-                  <ServiceCard service={cluster} />
+              ) : (
+                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
+                      {cluster.title}
+                    </h3>
+                    {cluster.description && (
+                      <p className="text-sm text-muted-foreground mt-1 max-w-prose">
+                        {cluster.description}
+                      </p>
+                    )}
+                  </div>
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">
+                    {count} services
+                  </span>
                 </div>
               )}
               {cluster.services && renderNodes(cluster.services, depth + 1)}

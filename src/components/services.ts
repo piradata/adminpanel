@@ -1,4 +1,4 @@
-import type { Service } from "@/components/service-card"
+import type { Service } from "@/src/components/service-card"
 
 // ServiceNode can represent either a leaf service or a cluster.
 // When a node has a `services` map, its children are keyed by id.

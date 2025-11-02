@@ -1,4 +1,4 @@
-import { servicesByCategory, categoryCounts, type CategoryDefinition, type ServiceNode } from "@/lib/services"
+import { servicesByCategory, categoryCounts, type CategoryDefinition, type ServiceNode } from "@/src/components/services"
 import { ServiceCard } from "./service-card"
 
 export function LayeredContainers() {

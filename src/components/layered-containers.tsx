@@ -26,9 +26,14 @@ const renderNodes = (nodes: Record<string, ServiceNode>, depth: number = 0) => {
   return (
     <div className="space-y-6">
       {leaves.length > 0 && (
-        <div className="grid gap-3 md:gap-4 lg:gap-5 grid-cols-[repeat(auto-fit,minmax(110px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(130px,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(140px,1fr))] xl:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] 2xl:grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+        <div className="flex flex-wrap gap-3 md:gap-4 lg:gap-5">
           {leaves.map(([key, leaf]) => (
-            <ServiceCard key={key} service={leaf} />
+            <div
+              key={key}
+              className="flex-grow basis-[90px] sm:basis-[100px] md:basis-[110px] lg:basis-[120px] xl:basis-[130px] 2xl:basis-[140px] max-w-[140px]"
+            >
+              <ServiceCard service={leaf} />
+            </div>
           ))}
         </div>
       )}

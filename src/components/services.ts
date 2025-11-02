@@ -31,6 +31,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     description: "Central personal entry point",
     services: {
       website: { title: "Personal Website", logo: "https://avatars.githubusercontent.com/u/16529503", url: "" },
+      github: { title: "GitHub", logo: "/github-logo.svg", url: "" },
     },
   },
   admin: {
@@ -46,6 +47,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       adguard: { title: "AdGuard", logo: "https://st.adguardcdn.com/favicons/adguard/apple-touch-icon.png", url: "" },
       cloudflared: { title: "Cloudflared", logo: "https://www.cloudflare.com/favicon.ico", url: "" },
       npm: { title: "Nginx Proxy Manager", logo: "https://nginxproxymanager.com/logo.svg", url: "" },
+      router: { title: "Router", logo: "https://cdn-icons-png.flaticon.com/512/1183/1183606.png", url: "" },
     },
   },
   media: {
@@ -55,6 +57,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     services: {
       immich: { title: "Immich", logo: "https://raw.githubusercontent.com/immich-app/immich/refs/heads/main/design/immich-logo.png", url: "" },
       nextcloud: { title: "Nextcloud", logo: "https://avatars.githubusercontent.com/u/19211038?s=200&v=4", url: "" },
+      hfs: { title: "Http File Server", logo: "https://raw.githubusercontent.com/rejetto/hfs/refs/heads/main/hfs.ico", url: "" },
       jellyfin: {
         title: "Jellyfin",
         clusterTitle: "ARR Stacks",

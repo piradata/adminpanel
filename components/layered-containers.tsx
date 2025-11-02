@@ -3,12 +3,6 @@
 import { servicesByCategory, categoryCounts, type CategoryDefinition } from "@/lib/services"
 import { ServiceCard } from "./service-card"
 
-const CATEGORY_META: Record<string, { title: string; color: string; description?: string }> = {
-  hub: { title: "Hub", color: "from-blue-500/20 to-blue-700/10", description: "Central personal entry point" },
-  admin: { title: "Administration", color: "from-orange-500/20 to-orange-700/10", description: "Platform & infrastructure management" },
-  media: { title: "Media Services", color: "from-purple-500/20 to-purple-700/10", description: "Media indexing, streaming & discovery" },
-}
-
 export function LayeredContainers() {
   const categories = Object.entries(servicesByCategory) as Array<[
     string,
@@ -18,7 +12,7 @@ export function LayeredContainers() {
   return (
     <div className="space-y-10 px-4 md:px-6 lg:px-8 py-8">
       {categories.map(([category, definition]) => {
-        const meta = CATEGORY_META[category]
+        const meta = definition
         const totalServices = categoryCounts[category]
         return (
           <section

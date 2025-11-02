@@ -17,16 +17,25 @@ export interface ServiceCluster {
 export interface CategoryDefinition {
   standalone: Service[]
   clusters?: ServiceCluster[]
+  title: string
+  color: string
+  description?: string
 }
 
 // Centralized service definitions grouped by category
 export const servicesByCategory: Record<string, CategoryDefinition> = Object.freeze({
   hub: {
+    title: "Hub",
+    color: "from-blue-500/20 to-blue-700/10",
+    description: "Central personal entry point",
     standalone: [
       { id: "website", name: "Personal Website", logo: "https://avatars.githubusercontent.com/u/16529503", url: "", category: "hub" },
     ],
   },
   admin: {
+    title: "Administration",
+    color: "from-orange-500/20 to-orange-700/10",
+    description: "Platform & infrastructure management",
     standalone: [
       { id: "authentik", name: "Authentik", logo: "https://goauthentik.io/img/icon.png", url: "", category: "admin" },
       { id: "arcane", name: "Arcane", logo: "https://raw.githubusercontent.com/ofkm/arcane/refs/heads/main/frontend/static/img/pwa/icon-512x512.png", url: "", category: "admin" },
@@ -39,6 +48,9 @@ export const servicesByCategory: Record<string, CategoryDefinition> = Object.fre
     ],
   },
   media: {
+    title: "Media Services",
+    color: "from-purple-500/20 to-purple-700/10",
+    description: "Media indexing, streaming & discovery",
     standalone: [
       { id: "immich", name: "Immich", logo: "https://raw.githubusercontent.com/immich-app/immich/refs/heads/main/design/immich-logo.png", url: "", category: "media" },
       { id: "nextcloud", name: "Nextcloud", logo: "https://avatars.githubusercontent.com/u/19211038?s=200&v=4", url: "", category: "media" },

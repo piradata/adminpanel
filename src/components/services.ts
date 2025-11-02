@@ -30,7 +30,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     color: "from-blue-500/20 to-blue-700/10",
     description: "Central personal entry point",
     services: {
-      website: { title: "Personal Website", logo: "https://avatars.githubusercontent.com/u/16529503", url: "https://www.piradate.dev" },
+      website: { title: "Personal Website", logo: "https://avatars.githubusercontent.com/u/16529503", url: "https://www.piradata.dev" },
       github: { title: "GitHub", logo: "/github-logo.svg", url: "https://github.com/piradata" },
       docker: { title: "Docker Hub", logo: "/dockerhub-logo.png", url: "https://hub.docker.com/repositories/piradata" }
     },

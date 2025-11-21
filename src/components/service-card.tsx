@@ -1,4 +1,4 @@
-import { Service } from "@/src/components/services";
+import type { Service } from "@/src/components/services";
 
 export interface ServiceCardProps {
   service: Service;

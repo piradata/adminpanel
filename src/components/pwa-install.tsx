@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 
-// Type definition for the beforeinstallprompt event (not yet standard)
+// Type definition for the beforeinstallprompt Event (not yet standard)
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
   userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
 }
 
+// Extend Navigator interface to include 'standalone'
+interface NavigatorStandalone extends Navigator {
+  standalone?: boolean;
+}
+
 function isStandalone() {
   return (
     window.matchMedia("(display-mode: standalone)").matches ||
-    (window.navigator as any).standalone === true
+    (window.navigator as NavigatorStandalone).standalone === true
   );
 }
 
@@ -50,6 +56,7 @@ export const PWAInstall: React.FC = () => {
 
   return (
     <button
+      type="button"
       onClick={onInstallClick}
       className="ml-auto inline-flex items-center gap-1 rounded-md border border-border bg-background/60 px-2 py-1 text-xs font-medium text-foreground hover:bg-accent/10 transition-colors"
     >
@@ -61,7 +68,9 @@ export const PWAInstall: React.FC = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        aria-hidden="true"
       >
+        <title>Install App Icon</title>
         <path d="M12 3v14" />
         <path d="M5 10l7 7 7-7" />
         <path d="M5 21h14" />

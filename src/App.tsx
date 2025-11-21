@@ -1,5 +1,5 @@
-import { Header } from "@/src/components/header"
-import { LayeredContainers } from "@/src/components/layered-containers"
+import { Header } from "@/src/components/header";
+import { LayeredContainers } from "@/src/components/layered-containers";
 
 export default function App() {
   return (
@@ -7,5 +7,5 @@ export default function App() {
       <Header />
       <LayeredContainers />
     </main>
-  )
+  );
 }

@@ -1,10 +1,10 @@
 import {
-  servicesByCategory,
   type CategoryDefinition,
   type ServiceNode,
+  servicesByCategory,
 } from "@/src/components/services";
-import { ServiceCard } from "./service-card";
 import { ClusterHeader } from "./cluster-header";
+import { ServiceCard } from "./service-card";
 
 const categories = Object.entries(servicesByCategory) as Array<
   [string, CategoryDefinition]
@@ -50,9 +50,7 @@ const renderNodes = (nodes: Record<string, ServiceNode>, depth: number = 0) => {
             }`}
           >
             <ClusterHeader cluster={cluster} count={count} />
-            {cluster.services && (
-              <>{renderNodes(cluster.services, depth + 1)}</>
-            )}
+            {cluster.services && renderNodes(cluster.services, depth + 1)}
           </div>
         );
       })}

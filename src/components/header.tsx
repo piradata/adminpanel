@@ -12,7 +12,9 @@ export function Header() {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-labelledby="header-logo-title"
               >
+                <title id="header-logo-title">Checkmark in circle icon</title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

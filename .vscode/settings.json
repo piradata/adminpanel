@@ -1,3 +1,34 @@
 {
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "css.customData": [".vscode/tailwind.json"],
+  "cSpell.words": [
+    "adminpanel",
+    "appinstalled",
+    "Authentik",
+    "beforeinstallprompt",
+    "Bitwarden",
+    "Cloudflared",
+    "cmdk",
+    "dockerhub",
+    "Immich",
+    "Jellyfin",
+    "jellyseerr",
+    "lidarr",
+    "Netbird",
+    "Nextcloud",
+    "prowlarr",
+    "qbittorrent",
+    "radarr",
+    "sonarr",
+    "Webmin",
+    "wizarr"
+  ],
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }

@@ -1,23 +1,23 @@
-import type { Service } from "@/src/components/services";
+import type { Service } from '@/src/components/services';
 
 export interface ServiceCardProps {
   service: Service;
 }
 
-export function ServiceCard({ service }: ServiceCardProps) {
-  const hrefAttr = service.url || "#";
+export function ServiceCard({ service }: Readonly<ServiceCardProps>) {
+  const hrefAttr = service.url || '#';
 
   return (
     <a
       href={hrefAttr}
-      target={service.url ? "_blank" : undefined}
-      rel={service.url ? "noopener noreferrer" : undefined}
+      target={service.url ? '_blank' : undefined}
+      rel={service.url ? 'noopener noreferrer' : undefined}
       className="group relative overflow-hidden rounded-lg border bg-card/40 hover:bg-card/70 transition-all duration-300 hover:shadow-lg aspect-square flex"
     >
       {/* Image fills card */}
       <div className="absolute inset-0 flex items-center justify-center p-6">
         <img
-          src={service.logo || "/placeholder.jpg"}
+          src={service.logo || '/placeholder.jpg'}
           alt={`${service.title} logo`}
           className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-110"
           loading="lazy"

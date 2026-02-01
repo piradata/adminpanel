@@ -1,14 +1,8 @@
-import {
-  type CategoryDefinition,
-  type ServiceNode,
-  servicesByCategory,
-} from "@/src/components/services";
-import { ClusterHeader } from "./cluster-header";
-import { ServiceCard } from "./service-card";
+import { type ServiceNode, servicesByCategory } from '@/src/components/services';
+import { ClusterHeader } from './cluster-header';
+import { ServiceCard } from './service-card';
 
-const categories = Object.entries(servicesByCategory) as Array<
-  [string, CategoryDefinition]
->;
+const categories = Object.entries(servicesByCategory);
 
 // Count services recursively
 const countServices = (nodes: Record<string, ServiceNode>): number => {
@@ -38,15 +32,13 @@ const renderNodes = (nodes: Record<string, ServiceNode>, depth: number = 0) => {
         </div>
       )}
       {clusters.map(([key, cluster]) => {
-        const children = cluster.services
-          ? Object.values(cluster.services)
-          : [];
+        const children = cluster.services ? Object.values(cluster.services) : [];
         const count = children.length + (cluster.displaySelf ? 1 : 0);
         return (
           <div
             key={key}
             className={`rounded-xl border border-border/60 bg-background/40 px-4 py-5 md:px-6 md:py-6 space-y-5 ${
-              depth === 0 ? "mt-6" : ""
+              depth === 0 ? 'mt-6' : ''
             }`}
           >
             <ClusterHeader cluster={cluster} count={count} />
@@ -72,7 +64,7 @@ export function LayeredContainers() {
           >
             <div
               className={`absolute inset-0 bg-gradient-to-br ${
-                meta?.color || "from-accent/10 to-transparent"
+                meta?.color || 'from-accent/10 to-transparent'
               } pointer-events-none`}
             />
             <div className="relative z-10 p-5 md:p-6 lg:p-7">
@@ -82,15 +74,12 @@ export function LayeredContainers() {
                     {meta?.title || category}
                   </h2>
                   {meta?.description && (
-                    <p className="text-xs md:text-sm text-muted-foreground mt-1 max-w-prose">
-                      {meta.description}
-                    </p>
+                    <p className="text-xs md:text-sm text-muted-foreground mt-1 max-w-prose">{meta.description}</p>
                   )}
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <span className="inline-flex items-center gap-1">
-                    <span className="h-2 w-2 rounded-full bg-accent" />{" "}
-                    {totalServices} services
+                    <span className="h-2 w-2 rounded-full bg-accent" /> {totalServices} services
                   </span>
                 </div>
               </header>

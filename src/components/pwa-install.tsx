@@ -1,10 +1,10 @@
-import type React from "react";
-import { useEffect, useState } from "react";
+import type React from 'react';
+import { useEffect, useState } from 'react';
 
 // Type definition for the beforeinstallprompt Event (not yet standard)
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
 }
 
 // Extend Navigator interface to include 'standalone'
@@ -14,14 +14,13 @@ interface NavigatorStandalone extends Navigator {
 
 function isStandalone() {
   return (
-    window.matchMedia("(display-mode: standalone)").matches ||
-    (window.navigator as NavigatorStandalone).standalone === true
+    globalThis.matchMedia('(display-mode: standalone)').matches ||
+    (globalThis.navigator as NavigatorStandalone).standalone === true
   );
 }
 
 export const PWAInstall: React.FC = () => {
-  const [deferredPrompt, setDeferredPrompt] =
-    useState<BeforeInstallPromptEvent | null>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [installed, setInstalled] = useState<boolean>(isStandalone());
 
   useEffect(() => {
@@ -29,13 +28,13 @@ export const PWAInstall: React.FC = () => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
     };
-    window.addEventListener("beforeinstallprompt", handler);
-    window.addEventListener("appinstalled", () => {
+    globalThis.addEventListener('beforeinstallprompt', handler);
+    globalThis.addEventListener('appinstalled', () => {
       setInstalled(true);
       setDeferredPrompt(null);
     });
     return () => {
-      window.removeEventListener("beforeinstallprompt", handler);
+      globalThis.removeEventListener('beforeinstallprompt', handler);
     };
   }, []);
 
@@ -45,12 +44,12 @@ export const PWAInstall: React.FC = () => {
     try {
       await deferredPrompt.prompt();
       const choice = await deferredPrompt.userChoice;
-      if (choice.outcome === "accepted") {
+      if (choice.outcome === 'accepted') {
         setInstalled(true);
         setDeferredPrompt(null);
       }
     } catch (err) {
-      console.error("PWA install failed", err);
+      console.error('PWA install failed', err);
     }
   };
 

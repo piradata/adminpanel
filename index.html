@@ -26,6 +26,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
+          // debugger;
           navigator.serviceWorker.register('/sw.js').catch(err => console.debug('SW registration failed', err))
         })
       }

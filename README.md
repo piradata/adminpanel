@@ -24,7 +24,7 @@ This project is a **Vite + React** static dashboard that is installable as a **P
    ```
 2. Open Chrome at [`https://localhost:3000`](https://localhost:3000).
 3. Open **DevTools > Application > Manifest** to verify fields.
-4. You should see an install icon in Chrome’s omnibox or the custom **“Install App”** button in the header if eligible.
+4. You should see an install icon in Chrome if eligible.
 5. Click the custom button and confirm installation — the app should open in a standalone window.
 
 ---
@@ -71,12 +71,9 @@ Ensure the following files exist at the root of the `public/` directory:
 
 ## 🧩 Troubleshooting
 
-| Issue                                      | Fix                                                                                                             |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| **Install button not showing**             | Verify served over HTTPS, not already installed, and that `beforeinstallprompt` fired (check DevTools console). |
-| **App opens in browser tab after install** | Check `display: standalone` and `start_url` in the manifest.                                                    |
-| **Offline page not shown**                 | Confirm cached content is available (visit routes once) and that the fetch handler returns cached data on errors. |
-| **SW registration failed**                 | Ensure you are on a secure origin (https or localhost/127.0.0.1) during development.                           |
+| Issue | Fix |
+| ----- | --- |
+| **App opens in browser tab after install** | Check `display: standalone` and `start_url` in the manifest. |
 
 ---
 

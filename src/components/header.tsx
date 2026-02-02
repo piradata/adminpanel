@@ -1,4 +1,4 @@
-import { PWAInstall } from "@/src/components/pwa-install";
+import { PWAInstall } from '@/src/components/pwa-install';
 
 export function Header() {
   return (
@@ -24,15 +24,10 @@ export function Header() {
               </svg>
             </div>
             <div>
-              <h1 className="text-lg font-bold text-balance">
-                Server Administration
-              </h1>
-              <p className="text-xs text-muted-foreground">
-                Linux Server Services
-              </p>
+              <h1 className="text-lg font-bold text-balance">Server Administration</h1>
+              <p className="text-xs text-muted-foreground">Linux Server Services</p>
             </div>
           </div>
-          <PWAInstall />
         </div>
       </div>
     </header>

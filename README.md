@@ -20,7 +20,7 @@ This project is a **Vite + React** static dashboard that is installable as a **P
    pnpm install
    pnpm dev
    ```
-2. Open Chrome at [`https://localhost:3000`](https://localhost:3000).
+2. Open Chrome at [`http://localhost:3000`](http://localhost:3000).
 3. Open **DevTools > Application > Manifest** to verify fields.
 4. You should see an install icon in Chrome if eligible.
 5. Click the install icon and confirm installation — the app should open in a standalone window.
@@ -51,19 +51,6 @@ pnpm build
 ```
 
 Deploy the contents of `dist/` behind an **HTTPS origin** (required for PWA installation and service worker registration).
-
----
-
-## ❗ Icon Requirements
-
-Ensure the following files exist at the root of the `public/` directory:
-
-* `icon-192x192.png`
-* `icon-512x512.png`
-* `icon-192x192-maskable.png`
-* `icon-512x512-maskable.png`
-
-> Maskable icons ensure the app icon displays correctly on Android launchers.
 
 ---
 

@@ -32,7 +32,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     services: {
       website: {
         title: 'Personal Website',
-        logo: 'https://avatars.githubusercontent.com/u/16529503',
+        logo: '/favicon.ico',
         url: 'https://www.piradata.dev',
       },
       github: {
@@ -106,7 +106,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     services: {
       immich: {
         title: 'Immich',
-        logo: 'https://raw.githubusercontent.com/immich-app/immich/refs/heads/main/design/immich-logo.png',
+        logo: '/immich-logo.png',
         url: 'https://immich.local.piradata.dev',
       },
       nextcloud: {
@@ -129,7 +129,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         services: {
           jellyseerr: {
             title: 'Jellyseerr',
-            logo: 'https://raw.githubusercontent.com/seerr-team/seerr/refs/heads/develop/public/android-chrome-512x512.png',
+            logo: '/jellyseerr-logo.png',
             url: 'https://jellyseerr.cloud.piradata.dev',
           },
           wizarr: {

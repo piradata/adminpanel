@@ -27,28 +27,10 @@ export default defineConfig({
         prefer_related_applications: false,
         icons: [
           {
-            src: '/icon-192x192.png',
+            src: '/favicon.ico',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any',
-          },
-          {
-            src: '/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any',
-          },
-          {
-            src: '/icon-192x192-maskable.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'maskable',
-          },
-          {
-            src: '/icon-512x512-maskable.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable',
           },
         ],
         categories: ['productivity', 'utilities'],

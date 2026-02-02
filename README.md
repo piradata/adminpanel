@@ -9,8 +9,6 @@ This project is a **Vite + React** static dashboard that is installable as a **P
 * Web App Manifest with icons (including maskable) and standalone display
 * Service Worker caching app shell + runtime caching of GET requests
 * Offline fallback to cached content when navigation fails
-* Custom install button using the `beforeinstallprompt` event
-* Proper handling of `appinstalled` + standalone detection
 
 ---
 
@@ -25,7 +23,7 @@ This project is a **Vite + React** static dashboard that is installable as a **P
 2. Open Chrome at [`https://localhost:3000`](https://localhost:3000).
 3. Open **DevTools > Application > Manifest** to verify fields.
 4. You should see an install icon in Chrome if eligible.
-5. Click the custom button and confirm installation — the app should open in a standalone window.
+5. Click the install icon and confirm installation — the app should open in a standalone window.
 
 ---
 

@@ -127,10 +127,10 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         url: 'https://jelly.cloud.piradata.dev',
         displaySelf: true,
         services: {
-          jellyseerr: {
-            title: 'Jellyseerr',
-            logo: '/jellyseerr-logo.png',
-            url: 'https://jellyseerr.cloud.piradata.dev',
+          jellyseer: {
+            title: 'Jellyseer',
+            logo: '/jellyseer-logo.png',
+            url: 'https://jellyseer.cloud.piradata.dev',
           },
           wizarr: {
             title: 'Wizarr',

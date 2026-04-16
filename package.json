@@ -30,5 +30,13 @@
     "typescript": "^5.9.3",
     "vite": "^6.4.2"
   },
-  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "overrides": {
+      "source-map": "0.7.6",
+      "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@1.5.5",
+      "glob": "13.0.6",
+      "serialize-javascript": "7.0.5"
+    }
+  }
 }

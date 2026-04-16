@@ -1,5 +1,3 @@
-import { PWAInstall } from '@/src/components/pwa-install';
-
 export function Header() {
   return (
     <header className="border-b border-border bg-card/50 backdrop-blur-md sticky top-0 z-50">
@@ -24,8 +22,12 @@ export function Header() {
               </svg>
             </div>
             <div>
-              <h1 className="text-lg font-bold text-balance">Server Administration</h1>
-              <p className="text-xs text-muted-foreground">Linux Server Services</p>
+              <h1 className="text-lg font-bold text-balance" style={{ userSelect: 'none' }}>
+                Server Administration
+              </h1>
+              <p className="text-xs text-muted-foreground" style={{ userSelect: 'none' }}>
+                Linux Server Services
+              </p>
             </div>
           </div>
         </div>

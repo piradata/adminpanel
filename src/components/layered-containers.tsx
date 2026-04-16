@@ -1,4 +1,5 @@
 import { type ServiceNode, servicesByCategory } from '@/src/components/services';
+import { useServiceCardNavigation } from '@/src/hooks/useServiceCardNavigation';
 import { ClusterHeader } from './cluster-header';
 import { ServiceCard } from './service-card';
 
@@ -24,6 +25,7 @@ const renderNodes = (nodes: Record<string, ServiceNode>, depth: number = 0) => {
           {leaves.map(([key, leaf]) => (
             <div
               key={key}
+              data-service-card
               className="flex-grow basis-[90px] sm:basis-[100px] md:basis-[110px] lg:basis-[120px] xl:basis-[130px] 2xl:basis-[140px] max-w-[140px]"
             >
               <ServiceCard service={leaf} />
@@ -51,7 +53,9 @@ const renderNodes = (nodes: Record<string, ServiceNode>, depth: number = 0) => {
 };
 
 export function LayeredContainers() {
-  // Recursive renderer: cluster nodes (with nested services) are rendered with header + grid
+  // Initialize arrow key navigation for service cards
+  useServiceCardNavigation();
+
   return (
     <div className="space-y-10 px-4 md:px-6 lg:px-8 py-8">
       {categories.map(([category, definition]) => {
@@ -70,14 +74,22 @@ export function LayeredContainers() {
             <div className="relative z-10 p-5 md:p-6 lg:p-7">
               <header className="mb-5 md:mb-6 flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-lg md:text-xl font-bold text-foreground tracking-tight">
+                  <h2
+                    className="text-lg md:text-xl font-bold text-foreground tracking-tight"
+                    style={{ userSelect: 'none' }}
+                  >
                     {meta?.title || category}
                   </h2>
                   {meta?.description && (
-                    <p className="text-xs md:text-sm text-muted-foreground mt-1 max-w-prose">{meta.description}</p>
+                    <p
+                      className="text-xs md:text-sm text-muted-foreground mt-1 max-w-prose"
+                      style={{ userSelect: 'none' }}
+                    >
+                      {meta.description}
+                    </p>
                   )}
                 </div>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground" style={{ userSelect: 'none' }}>
                   <span className="inline-flex items-center gap-1">
                     <span className="h-2 w-2 rounded-full bg-accent" /> {totalServices} services
                   </span>

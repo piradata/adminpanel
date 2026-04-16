@@ -2,8 +2,12 @@ import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { SourceMap } from 'node:module';
 
 export default defineConfig({
+  esbuild: {
+    legalComments: 'none',
+  },
   plugins: [
     react(),
     VitePWA({
@@ -12,6 +16,9 @@ export default defineConfig({
       strategies: 'generateSW',
       devOptions: {
         enabled: true,
+      },
+      workbox: {
+        sourcemap: false,
       },
       manifest: {
         name: 'Server Administration Dashboard',
@@ -49,6 +56,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    sourcemap: false,
   },
   publicDir: 'public',
 });

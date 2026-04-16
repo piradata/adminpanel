@@ -10,19 +10,37 @@ export function ClusterHeader({ cluster, count }: Readonly<ClusterHeaderProps>) 
     <>
       {cluster.displaySelf === false ? (
         <div className="flex flex-col gap-2">
-          <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">{cluster.clusterTitle}</h3>
-          <span className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide">{count} services</span>
+          <h3
+            className="text-base md:text-lg font-semibold text-foreground tracking-tight"
+            style={{ userSelect: 'none' }}
+          >
+            {cluster.clusterTitle}
+          </h3>
+          <span
+            className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide"
+            style={{ userSelect: 'none' }}
+          >
+            {count} services
+          </span>
           {cluster.description && (
-            <p className="text-sm text-muted-foreground mt-1 max-w-prose">{cluster.description}</p>
+            <p className="text-sm text-muted-foreground mt-1 max-w-prose" style={{ userSelect: 'none' }}>
+              {cluster.description}
+            </p>
           )}
         </div>
       ) : (
         <div className="space-y-4 pb-5 border-b border-border/40">
           <div className="flex flex-col items-start">
-            <h3 className="text-base md:text-lg font-semibold text-foreground tracking-tight">
+            <h3
+              className="text-base md:text-lg font-semibold text-foreground tracking-tight"
+              style={{ userSelect: 'none' }}
+            >
               {cluster.clusterTitle || cluster.title}
             </h3>
-            <span className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide">
+            <span
+              className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide"
+              style={{ userSelect: 'none' }}
+            >
               {count} services
             </span>
           </div>
@@ -42,7 +60,9 @@ export function ClusterHeader({ cluster, count }: Readonly<ClusterHeaderProps>) 
             </a>
             {/* Description vertically centered on right */}
             {cluster.description && (
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1">{cluster.description}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed flex-1" style={{ userSelect: 'none' }}>
+                {cluster.description}
+              </p>
             )}
           </div>
         </div>

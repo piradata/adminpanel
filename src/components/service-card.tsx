@@ -25,7 +25,10 @@ export function ServiceCard({ service }: Readonly<ServiceCardProps>) {
       </div>
       {/* Title bar */}
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent px-2 py-1.5">
-        <h3 className="font-medium text-xs  text-center text-foreground/90 group-hover:text-accent line-clamp-2 leading-tight">
+        <h3
+          className="font-medium text-xs  text-center text-foreground/90 group-hover:text-accent line-clamp-2 leading-tight"
+          style={{ userSelect: 'none' }}
+        >
           {service.title}
         </h3>
       </div>

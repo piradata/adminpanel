@@ -16,6 +16,7 @@
     "jellyseerr",
     "lidarr",
     "Netbird",
+    "networkidle",
     "Nextcloud",
     "piradata",
     "prowlarr",
@@ -32,6 +33,9 @@
     "source.organizeImports.biome": "explicit"
   },
   "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   }
 }

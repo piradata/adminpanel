@@ -59,7 +59,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       arcane: {
         title: 'Arcane',
-        logo: 'https://raw.githubusercontent.com/ofkm/arcane/refs/heads/main/frontend/static/img/pwa/icon-512x512.png',
+        logo: '/arcane-logo.svg',
         url: 'https://arcane.local.piradata.dev',
       },
       webmin: {

@@ -1,6 +1,6 @@
 {
   "name": "my-v0-project",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -11,32 +11,24 @@
     "test:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@biomejs/biome": "^2.4.12",
+    "@biomejs/biome": "^2.4.16",
     "cmdk": "1.0.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "vite-plugin-pwa": "^1.2.0"
+    "vite-plugin-pwa": "^1.3.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.59.1",
-    "@tailwindcss/postcss": "^4.2.2",
-    "@types/node": "^22.19.17",
-    "@types/react": "^19.2.14",
+    "@playwright/test": "^1.60.0",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^4.7.0",
-    "postcss": "^8.5.10",
-    "tailwindcss": "^4.2.2",
+    "@vitejs/plugin-react": "^6.0.2",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0",
     "tw-animate-css": "1.3.3",
-    "typescript": "^5.9.3",
-    "vite": "^6.4.2"
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16"
   },
-  "packageManager": "pnpm@10.33.0",
-  "pnpm": {
-    "overrides": {
-      "source-map": "0.7.6",
-      "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@1.5.5",
-      "glob": "13.0.6",
-      "serialize-javascript": "7.0.5"
-    }
-  }
+  "packageManager": "pnpm@11.5.1+sha512.93f7b57422ea7068257235b4c16eb60762eb68e1dc23723199cc739043ea9be2c4143274a399d8c6defa2b1176226d9ca1c4b63482d6200c1a8fbaa78c1d1485"
 }

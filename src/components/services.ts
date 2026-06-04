@@ -45,6 +45,11 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         logo: '/dockerhub-logo.png',
         url: 'https://hub.docker.com/repositories/piradata',
       },
+      ngrok: {
+        title: 'Ngrok Page',
+        logo: '/ngrok-logo.png',
+        url: 'https://ngrok.piradata.dev',
+      },
     },
   },
   admin: {
@@ -69,7 +74,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       netbird: {
         title: 'Netbird',
-        logo: 'https://netbird.io/apple-icon.png',
+        logo: '/netbird-logo.png',
         url: 'https://netbird.local.piradata.dev',
       },
       adguard: {

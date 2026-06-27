@@ -33,3 +33,7 @@ yarn-error.log*
 # tests
 /test-results
 /playwright-report
+
+# playwright
+/playwright-report
+/test-results

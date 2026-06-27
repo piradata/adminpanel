@@ -11,7 +11,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       strategies: 'generateSW',
       devOptions: {
-        enabled: true,
+        enabled: false,
       },
       workbox: {
         sourcemap: false,
@@ -31,7 +31,7 @@ export default defineConfig({
           {
             src: '/favicon.ico',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/x-icon',
             purpose: 'any',
           },
         ],
@@ -52,6 +52,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    target: 'esnext',
+    cssMinify: true,
   },
   publicDir: 'public',
 });

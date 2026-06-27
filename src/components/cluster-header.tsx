@@ -48,6 +48,7 @@ export function ClusterHeader({ cluster, count }: Readonly<ClusterHeaderProps>) 
             href={cluster.url || '#'}
             target={cluster.url ? '_blank' : undefined}
             rel={cluster.url ? 'noopener noreferrer' : undefined}
+            aria-label={`Open ${cluster.title}`}
             className="group relative flex-shrink-0 rounded-lg border border-transparent p-1 outline-none select-none cursor-default transition-all duration-300 hover:shadow-lg focus:shadow-lg"
           >
             <img

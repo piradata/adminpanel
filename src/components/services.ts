@@ -84,7 +84,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       cloudflared: {
         title: 'Cloudflared',
-        logo: 'https://www.cloudflare.com/favicon.ico',
+        logo: '/cloudflare-logo.png',
         url: 'https://dash.cloudflare.com/7c00deacf90c494c49bedd35feaafce8/piradata.dev/dns/records',
       },
       npm: {

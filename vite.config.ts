@@ -25,7 +25,6 @@ export default defineConfig({
         start_url: '/?source=pwa',
         scope: '/',
         display: 'standalone',
-
         background_color: '#0f172a',
         prefer_related_applications: false,
         icons: [

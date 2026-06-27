@@ -69,7 +69,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       webmin: {
         title: 'Webmin',
-        logo: 'https://webmin.com/apple-touch-icon.png',
+        logo: '/webmin-logo.jxl',
         url: 'https://webmin.local.piradata.dev',
       },
       netbird: {
@@ -79,7 +79,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       adguard: {
         title: 'AdGuard',
-        logo: 'https://st.adguardcdn.com/favicons/adguard/apple-touch-icon.png',
+        logo: '/adguard-logo.jxl',
         url: 'https://adguard.local.piradata.dev',
       },
       cloudflared: {
@@ -89,17 +89,17 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       npm: {
         title: 'Nginx Proxy Manager',
-        logo: 'https://nginxproxymanager.com/logo.svg',
+        logo: '/nginx-logo.svg',
         url: 'https://nginx.local.piradata.dev',
       },
       router: {
         title: 'Router',
-        logo: 'https://cdn-icons-png.flaticon.com/512/1183/1183606.png',
+        logo: '/router-logo.jxl',
         url: 'https://router.local.piradata.dev',
       },
       bitwarden: {
         title: 'Bitwarden',
-        logo: 'https://bitwarden.com/icons/icon-512x512.png',
+        logo: '/bitwarden-logo.jxl',
         url: 'https://bitwarden.local.piradata.dev',
       },
     },
@@ -128,7 +128,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         title: 'Jellyfin',
         clusterTitle: 'ARR Stacks',
         description: 'Self-hosted media server with companion automation (ARR stack) and request tools.',
-        logo: 'https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/web/favicons/favicon.png',
+        logo: '/jellyfin-logo.jxl',
         url: 'https://jelly.cloud.piradata.dev',
         displaySelf: true,
         services: {

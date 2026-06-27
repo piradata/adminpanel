@@ -139,32 +139,32 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
           },
           wizarr: {
             title: 'Wizarr',
-            logo: 'https://raw.githubusercontent.com/wizarrrr/wizarr/refs/heads/main/app/static/wizarr-logo.png',
+            logo: '/wizarr-logo.jxl',
             url: 'https://wizarr.cloud.piradata.dev',
           },
           prowlarr: {
             title: 'Prowlarr',
-            logo: 'https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/256.png',
+            logo: '/prowlarr-logo.jxl',
             url: 'https://prowlarr.local.piradata.dev',
           },
           sonarr: {
             title: 'Sonarr',
-            logo: 'https://raw.githubusercontent.com/Sonarr/Sonarr/develop/Logo/256.png',
+            logo: '/sonarr-logo.jxl',
             url: 'https://sonarr.local.piradata.dev',
           },
           radarr: {
             title: 'Radarr',
-            logo: 'https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/256.png',
+            logo: '/radarr-logo.jxl',
             url: 'https://radarr.local.piradata.dev',
           },
           lidarr: {
             title: 'Lidarr',
-            logo: 'https://raw.githubusercontent.com/Lidarr/Lidarr/develop/Logo/256.png',
+            logo: '/lidarr-logo.jxl',
             url: 'https://lidarr.local.piradata.dev',
           },
           qbittorrent: {
             title: 'qBittorrent',
-            logo: 'https://www.qbittorrent.org/favicon.svg',
+            logo: '/qbittorrent-logo.svg',
             url: 'https://qbittorrent.local.piradata.dev',
           },
         },

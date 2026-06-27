@@ -116,12 +116,12 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       nextcloud: {
         title: 'Nextcloud',
-        logo: 'https://avatars.githubusercontent.com/u/19211038?s=200&v=4',
+        logo: '/nextcloud-logo.jxl',
         url: 'https://nextcloud.local.piradata.dev',
       },
       hfs: {
         title: 'Http File Server',
-        logo: 'https://raw.githubusercontent.com/rejetto/hfs/refs/heads/main/hfs.ico',
+        logo: '/hfs-logo.ico',
         url: 'https://hfs.local.piradata.dev',
       },
       jellyfin: {

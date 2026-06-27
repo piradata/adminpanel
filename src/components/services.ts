@@ -59,7 +59,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     services: {
       authentik: {
         title: 'Authentik',
-        logo: 'https://goauthentik.io/img/icon.png',
+        logo: '/authentik-logo.jxl',
         url: 'https://authentik.local.piradata.dev',
       },
       arcane: {

@@ -1,6 +1,6 @@
 export interface Service {
   title: string;
-  logo: string;
+  logo?: string;
   url: string;
   description?: string;
   services?: Record<string, Service>; // allow nested for clusters (for typing convenience here)
@@ -42,12 +42,12 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       docker: {
         title: 'Docker Hub',
-        logo: '/dockerhub-logo.png',
+        logo: '/dockerhub-logo.jxl',
         url: 'https://hub.docker.com/repositories/piradata',
       },
       ngrok: {
         title: 'Ngrok Page',
-        logo: '/ngrok-logo.png',
+        logo: '/ngrok-logo.jxl',
         url: 'https://ngrok.piradata.dev',
       },
     },
@@ -74,7 +74,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       netbird: {
         title: 'Netbird',
-        logo: '/netbird-logo.png',
+        logo: '/netbird-logo.jxl',
         url: 'https://netbird.local.piradata.dev',
       },
       adguard: {
@@ -84,7 +84,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       },
       cloudflared: {
         title: 'Cloudflared',
-        logo: '/cloudflare-logo.png',
+        logo: '/cloudflare-logo.jxl',
         url: 'https://dash.cloudflare.com/7c00deacf90c494c49bedd35feaafce8/piradata.dev/dns/records',
       },
       npm: {
@@ -111,7 +111,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     services: {
       immich: {
         title: 'Immich',
-        logo: '/immich-logo.png',
+        logo: '/immich-logo.jxl',
         url: 'https://immich.local.piradata.dev',
       },
       nextcloud: {
@@ -134,7 +134,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         services: {
           jellyseer: {
             title: 'Jellyseer',
-            logo: '/jellyseer-logo.png',
+            logo: '/jellyseer-logo.jxl',
             url: 'https://jellyseer.cloud.piradata.dev',
           },
           wizarr: {

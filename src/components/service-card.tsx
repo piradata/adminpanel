@@ -18,7 +18,7 @@ export function ServiceCard({ service }: Readonly<ServiceCardProps>) {
       {/* Image fills card */}
       <div className="absolute inset-0 flex items-center justify-center p-6">
         <img
-          src={service.logo || '/placeholder.png'}
+          src={service.logo || '/placeholder.jxl'}
           alt={`${service.title} logo`}
           className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110"
           loading="lazy"

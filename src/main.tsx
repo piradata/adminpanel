@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import './index.css';
+import { Header } from '@/src/components/header';
+import { LayeredContainers } from '@/src/components/layered-containers';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <App />
+      <Header />
+      <LayeredContainers />
     </React.StrictMode>
   );
 }

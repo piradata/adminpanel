@@ -54,6 +54,9 @@ export function ClusterHeader({ cluster, count }: Readonly<ClusterHeaderProps>) 
             <img
               src={cluster.logo}
               alt={`${cluster.title} logo`}
+              width={80}
+              height={80}
+              loading="lazy"
               className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110 group-focus:scale-110"
             />
             <span className="pointer-events-none absolute inset-0 rounded-lg ring-0 ring-accent/0 group-hover:ring-2 group-hover:ring-accent/40 group-focus:ring-2 group-focus:ring-accent/40 transition-all duration-300" />

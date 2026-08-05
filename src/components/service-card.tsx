@@ -2,9 +2,11 @@ import type { Service } from '@/src/components/services';
 
 export interface ServiceCardProps {
   service: Service;
+  /** First paint / LCP candidate — skip lazy, hint high priority */
+  priority?: boolean;
 }
 
-export function ServiceCard({ service }: Readonly<ServiceCardProps>) {
+export function ServiceCard({ service, priority = false }: Readonly<ServiceCardProps>) {
   const hrefAttr = service.url || '#';
 
   return (
@@ -20,8 +22,10 @@ export function ServiceCard({ service }: Readonly<ServiceCardProps>) {
         <img
           src={service.logo || '/placeholder.jxl'}
           alt={`${service.title} logo`}
+          width={192}
+          height={192}
           className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110"
-          loading="lazy"
+          {...(priority ? { fetchPriority: 'high' as const } : { loading: 'lazy' as const })}
         />
       </div>
       {/* Title bar */}

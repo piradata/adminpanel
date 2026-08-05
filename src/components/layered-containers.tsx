@@ -25,26 +25,34 @@ function partitionNodes(nodes: Record<string, ServiceNode>) {
   );
 }
 
-function LeafGrid({ leaves }: { leaves: [string, ServiceNode][] }) {
+function LeafGrid({ leaves, priorityFirst = false }: { leaves: [string, ServiceNode][]; priorityFirst?: boolean }) {
   if (leaves.length === 0) return null;
 
   return (
     <div className="flex flex-wrap gap-3 md:gap-4 lg:gap-5" data-service-card-grid>
-      {leaves.map(([key, leaf]) => (
+      {leaves.map(([key, leaf], i) => (
         <div key={key} data-service-card className={CARD_WRAPPER_CLASS}>
-          <ServiceCard service={leaf} />
+          <ServiceCard service={leaf} priority={priorityFirst && i === 0} />
         </div>
       ))}
     </div>
   );
 }
 
-function ServiceNodeTree({ nodes, depth = 0 }: { nodes: Record<string, ServiceNode>; depth?: number }) {
+function ServiceNodeTree({
+  nodes,
+  depth = 0,
+  priorityFirst = false,
+}: {
+  nodes: Record<string, ServiceNode>;
+  depth?: number;
+  priorityFirst?: boolean;
+}) {
   const { leaves, clusters } = partitionNodes(nodes);
 
   return (
     <div className="space-y-6">
-      <LeafGrid leaves={leaves} />
+      <LeafGrid leaves={leaves} priorityFirst={priorityFirst} />
       {clusters.map(([key, cluster]) => {
         const childCount = cluster.services ? Object.keys(cluster.services).length : 0;
         const count = childCount + (cluster.displaySelf ? 1 : 0);
@@ -66,7 +74,15 @@ function ServiceNodeTree({ nodes, depth = 0 }: { nodes: Record<string, ServiceNo
   );
 }
 
-function CategorySection({ category, definition }: { category: string; definition: CategoryDefinition }) {
+function CategorySection({
+  category,
+  definition,
+  priorityFirst,
+}: {
+  category: string;
+  definition: CategoryDefinition;
+  priorityFirst?: boolean;
+}) {
   const totalServices = countServices(definition.services);
 
   return (
@@ -94,7 +110,7 @@ function CategorySection({ category, definition }: { category: string; definitio
             </span>
           </div>
         </header>
-        <ServiceNodeTree nodes={definition.services} />
+        <ServiceNodeTree nodes={definition.services} priorityFirst={priorityFirst} />
       </div>
     </section>
   );
@@ -105,8 +121,8 @@ export function LayeredContainers() {
 
   return (
     <div className="space-y-10 px-4 md:px-6 lg:px-8 py-8">
-      {Object.entries(servicesByCategory).map(([category, definition]) => (
-        <CategorySection key={category} category={category} definition={definition} />
+      {Object.entries(servicesByCategory).map(([category, definition], i) => (
+        <CategorySection key={category} category={category} definition={definition} priorityFirst={i === 0} />
       ))}
     </div>
   );

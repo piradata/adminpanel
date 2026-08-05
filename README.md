@@ -1,6 +1,6 @@
-# Server Administration Dashboard PWA
+# Server Administration Dashboard
 
-This project is a **Vite + React** static dashboard that is installable as a **Progressive Web App (PWA)**.
+This project is a **Vite + React** static dashboard.
 
 ---
 
@@ -23,16 +23,6 @@ This project is a **Vite + React** static dashboard that is installable as a **P
 
 * Uses **cache-first with background population** for GET requests.
 * Provides a cached fallback if navigation fails.
-
----
-
-## 🔄 Updating the PWA
-
-After modifying static assets or the service worker:
-
-1. Increment the `CACHE_NAME` constant.
-2. Rebuild and redeploy.
-3. Users will get the new version on the next visit (during the activate phase).
 
 ---
 

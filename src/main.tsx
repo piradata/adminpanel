@@ -5,6 +5,7 @@ import { Header } from '@/src/components/header';
 import { LayeredContainers } from '@/src/components/layered-containers';
 
 // Drop stale SWs from the old PWA build so they stop controlling the page.
+// TODO: Remove this once we have a new build without the SW for some time.
 navigator.serviceWorker?.getRegistrations().then((rs) => {
   for (const r of rs) void r.unregister();
 });

@@ -4,14 +4,6 @@ This project is a **Vite + React** static dashboard that is installable as a **P
 
 ---
 
-## ✅ PWA Features Implemented
-
-* Web App Manifest with icons (including maskable) and standalone display
-* Service Worker caching app shell + runtime caching of GET requests
-* Offline fallback to cached content when navigation fails
-
----
-
 ## 🧪 How to Test Locally
 
 1. Install dependencies and run the dev server:
@@ -50,8 +42,6 @@ After modifying static assets or the service worker:
 pnpm build
 ```
 
-Deploy the contents of `dist/` behind an **HTTPS origin** (required for PWA installation and service worker registration).
-
 ---
 
 ## 🧩 Troubleshooting
@@ -66,13 +56,6 @@ Deploy the contents of `dist/` behind an **HTTPS origin** (required for PWA inst
 
 * Smarter asset precaching (Workbox)
 * Granular runtime cache strategies per resource type
+* configurable service map instead of hammered in code
 * Background sync for queued admin actions
 * Push notifications (requires server integration)
-
----
-
-**Happy hacking! 🚀**
-
----
-
-Would you like me to add badges (like “Built with Vite” or “PWA Ready”) at the top for a more polished README?

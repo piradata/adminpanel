@@ -77,6 +77,11 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         logo: '/netbird-logo.jxl',
         url: 'https://app.netbird.io/dns/zones',
       },
+      adguard: {
+        title: 'AdGuard',
+        logo: '/adguard-logo.jxl',
+        url: 'https://adguard.local.piradata.dev',
+      },
       cloudflared: {
         title: 'Cloudflared',
         logo: '/cloudflare-logo.jxl',

@@ -75,7 +75,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       netbird: {
         title: 'Netbird',
         logo: '/netbird-logo.jxl',
-        url: 'https://netbird.local.piradata.dev',
+        url: 'https://app.netbird.io/dns/zones',
       },
       cloudflared: {
         title: 'Cloudflared',

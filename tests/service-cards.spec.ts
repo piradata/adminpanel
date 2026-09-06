@@ -54,5 +54,4 @@ test.describe('Service Card Navigation', () => {
     const count = await wrappers.count();
     expect(count).toBeGreaterThan(0);
   });
-
 });

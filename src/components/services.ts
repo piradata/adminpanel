@@ -57,11 +57,6 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
     color: 'from-orange-500/20 to-orange-700/10',
     description: 'Platform & infrastructure management',
     services: {
-      authentik: {
-        title: 'Authentik',
-        logo: '/authentik-logo.jxl',
-        url: 'https://authentik.local.piradata.dev',
-      },
       arcane: {
         title: 'Arcane',
         logo: '/arcane-logo.svg',
@@ -96,11 +91,6 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         title: 'Router',
         logo: '/router-logo.jxl',
         url: 'https://router.local.piradata.dev',
-      },
-      bitwarden: {
-        title: 'Bitwarden',
-        logo: '/bitwarden-logo.jxl',
-        url: 'https://bitwarden.local.piradata.dev',
       },
     },
   },

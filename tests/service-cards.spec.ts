@@ -54,4 +54,10 @@ test.describe('Service Card Navigation', () => {
     const count = await wrappers.count();
     expect(count).toBeGreaterThan(0);
   });
+
+  test('Administration does not list Authentik or Bitwarden', async ({ page }) => {
+    await expect(page.getByRole('link', { name: /open authentik/i })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: /open bitwarden/i })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: /open arcane/i })).toBeVisible();
+  });
 });

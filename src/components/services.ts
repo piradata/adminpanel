@@ -152,10 +152,15 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
             logo: '/lidarr-logo.jxl',
             url: 'https://lidarr.local.piradata.dev',
           },
+          bazarr:{
+            title: 'Bazarr',
+            logo: '/bazarr-logo.jxl',
+            url: 'https://bazarr.local.piradata.dev',
+          },
           qbittorrent: {
             title: 'qBittorrent',
             logo: '/qbittorrent-logo.svg',
-            url: 'https://qbittorrent.local.piradata.dev',
+            url: 'https://qbitt.local.piradata.dev',
           },
         },
       },

@@ -119,18 +119,18 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         clusterTitle: 'ARR Stacks',
         description: 'Self-hosted media server with companion automation (ARR stack) and request tools.',
         logo: '/jellyfin-logo.jxl',
-        url: 'https://jelly.cloud.piradata.dev',
+        url: 'https://jelly.local.piradata.dev',
         displaySelf: true,
         services: {
           jellyseer: {
             title: 'Jellyseer',
             logo: '/jellyseer-logo.jxl',
-            url: 'https://jellyseer.cloud.piradata.dev',
+            url: 'https://seerr.local.piradata.dev',
           },
           wizarr: {
             title: 'Wizarr',
             logo: '/wizarr-logo.jxl',
-            url: 'https://wizarr.cloud.piradata.dev',
+            url: 'https://wizarr.local.piradata.dev',
           },
           prowlarr: {
             title: 'Prowlarr',

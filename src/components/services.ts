@@ -152,7 +152,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
             logo: '/lidarr-logo.jxl',
             url: 'https://lidarr.local.piradata.dev',
           },
-          bazarr:{
+          bazarr: {
             title: 'Bazarr',
             logo: '/bazarr-logo.jxl',
             url: 'https://bazarr.local.piradata.dev',

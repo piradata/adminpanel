@@ -45,6 +45,16 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         logo: '/dockerhub-logo.jxl',
         url: 'https://hub.docker.com/repositories/piradata',
       },
+      studio: {
+        title: 'Studio',
+        logo: '/studio-logo.svg',
+        url: 'https://studio.local.piradata.dev',
+      },
+      sechub: {
+        title: 'SecHub',
+        logo: '/sechub-logo.svg',
+        url: 'https://sechub.local.piradata.dev',
+      },
       ngrok: {
         title: 'Ngrok Page',
         logo: '/ngrok-logo.jxl',
@@ -161,6 +171,11 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
             title: 'qBittorrent',
             logo: '/qbittorrent-logo.svg',
             url: 'https://qbitt.local.piradata.dev',
+          },
+          qbitmanage: {
+            title: 'qbitmanage',
+            logo: '/qbitmanage-logo.svg',
+            url: 'https://qbitmanage.local.piradata.dev',
           },
         },
       },

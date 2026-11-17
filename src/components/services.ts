@@ -55,6 +55,11 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
         logo: '/sechub-logo.svg',
         url: 'https://sechub.cloud.piradata.dev:8443',
       },
+      opencode: {
+        title: 'OpenCode Console',
+        logo: '/opencode-logo.svg',
+        url: 'https://opencode.ai/console',
+      },
       ngrok: {
         title: 'Ngrok Page',
         logo: '/ngrok-logo.jxl',

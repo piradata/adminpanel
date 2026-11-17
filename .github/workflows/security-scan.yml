@@ -1,0 +1,42 @@
+name: security-scan
+
+# The admin panel is a static Vite app; deploy.yml publishes it to GitHub Pages.
+# This workflow sends the repository to Security Center's CI gate.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-scan
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    env:
+      SC_URL: https://sechub.cloud.piradata.dev:8443
+      SC_TOKEN: ${{ secrets.SC_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check Security Center token
+        id: token
+        run: |
+          if [ -z "$SC_TOKEN" ]; then
+            echo "::warning::SC_TOKEN is not set; skipping the Security Center scan."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run Security Center scan
+        if: steps.token.outputs.ready == 'true'
+        run: |
+          curl -fsSL -H "Authorization: Bearer $SC_TOKEN" \
+            "$SC_URL/api/v1/ci/scan.sh" | bash

@@ -53,7 +53,7 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
       sechub: {
         title: 'SecHub',
         logo: '/sechub-logo.svg',
-        url: 'https://sechub.cloud.piradata.dev',
+        url: 'https://sechub.cloud.piradata.dev:8443',
       },
       ngrok: {
         title: 'Ngrok Page',

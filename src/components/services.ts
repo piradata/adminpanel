@@ -177,10 +177,10 @@ export const servicesByCategory: Record<string, CategoryDefinition> = {
             logo: '/qbittorrent-logo.svg',
             url: 'https://qbitt.local.piradata.dev',
           },
-          qbitmanage: {
-            title: 'qbitmanage',
-            logo: '/qbitmanage-logo.svg',
-            url: 'https://qbitmanage.local.piradata.dev',
+          qui: {
+            title: 'qui',
+            logo: '/qui-logo.png',
+            url: 'https://qui.local.piradata.dev',
           },
         },
       },

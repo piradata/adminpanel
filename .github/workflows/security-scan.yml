@@ -21,7 +21,7 @@ jobs:
       SC_URL: https://sechub.cloud.piradata.dev:8443
       SC_TOKEN: ${{ secrets.SC_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
 
@@ -35,8 +35,15 @@ jobs:
             echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Run Security Center scan
+      - name: Download Security Center scan script
         if: steps.token.outputs.ready == 'true'
         run: |
+          # Download first instead of piping straight into a shell, so the
+          # remote response is materialized before execution.
           curl -fsSL -H "Authorization: Bearer $SC_TOKEN" \
-            "$SC_URL/api/v1/ci/scan.sh" | bash
+            "$SC_URL/api/v1/ci/scan.sh" -o "$RUNNER_TEMP/sc-scan.sh"
+          chmod 700 "$RUNNER_TEMP/sc-scan.sh"
+
+      - name: Run Security Center scan
+        if: steps.token.outputs.ready == 'true'
+        run: bash "$RUNNER_TEMP/sc-scan.sh"
